@@ -1,4 +1,10 @@
 {
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true
+    },
     "files.associations": {
         "*.md": "markdown",
         "*.cjson": "jsonc",

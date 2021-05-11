@@ -46,23 +46,77 @@ template <class T> class LinkedList
     int            length;
 
   public:
+    /**
+     * @brief Construct a new Linked List object
+     * 
+     * @param maxLength 
+     */
     LinkedList(const int maxLength = -1); // -1 mean no limit to length
+    /**
+     * @brief Destroy the Linked List object
+     * 
+     */
     ~LinkedList();
 
   public:
+    /**
+     * @brief 
+     * 
+     */
     void TravelLinkedList();
 
   public:
+    /**
+     * @brief Set the Max Length object
+     * 
+     * @param maxLength 
+     */
     void SetMaxLength(const int maxLength = -1);
 
   public:
+    /**
+     * @brief 
+     * 
+     * @param data 
+     * @return true 
+     * @return false 
+     */
     bool Append(const T data);
+    /**
+     * @brief 
+     * 
+     * @param data 
+     * @param index 
+     * @return true 
+     * @return false 
+     */
     bool Insert(const T data, const int index); // insert data in index i
   public:
+    /**
+     * @brief Get the Data By Index object
+     * 
+     * @param data 
+     * @param index 
+     * @return true 
+     * @return false 
+     */
     bool GetDataByIndex(T& data, const int index = 0);
 
   public:
+    /**
+     * @brief 
+     * 
+     * @param index 
+     * @return true 
+     * @return false 
+     */
     bool Remove(const int index = 0);
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
     bool Clear();
 };
 
