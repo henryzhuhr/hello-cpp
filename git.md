@@ -77,3 +77,7 @@ git pull github
 # 从gitee拉取更新
 git pull gitee
 ```
+
+
+git config user.name "HenryZhu"
+git config user.email "296509195@qq.com"
