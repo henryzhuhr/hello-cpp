@@ -54,3 +54,26 @@ github  git@github.com:chloneda/demo.git (fetch)
 github  git@github.com:chloneda/demo.git (push)
 ```
 可以看到两个远程库，说明配置生效了。
+
+上传代码
+```bash
+git add .
+git commit -m "update"
+```
+提交到github
+```bash
+git push github master
+```
+提交到码云
+```bash
+git push gitee master
+```
+更新代码
+```bash
+# 从github拉取更新
+git pull github
+```
+```bash
+# 从gitee拉取更新
+git pull gitee
+```
