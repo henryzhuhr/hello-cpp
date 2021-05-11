@@ -9,7 +9,7 @@ git remote add github git@github.com:chloneda/demo.git
 ```
 接着，再关联码云的远程库：
 ```bash
-git remote add gitee https://gitee.com/HenryZhuHR/dataStructure-cpp.git
+git remote add origin https://gitee.com/HenryZhuHR/dataStructure-cpp.git
 ```
 
 
