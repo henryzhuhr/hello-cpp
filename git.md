@@ -11,3 +11,46 @@ git remote add github git@github.com:chloneda/demo.git
 ```bash
 git remote add gitee git@gitee.com:HenryZhu/DataStructure-Cpp.git
 ```
+
+
+配置方式同步
+修改.git文件夹内的config文件：
+```bash
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+[remote "origin"]
+    url = git@github.com:chloneda/demo.git
+    fetch = +refs/heads/*:refs/remotes/github/*
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+```
+将上述文件内容[remote "origin"]内容复制，修改origin名称，内容如下：
+```bash
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+[remote "github"]
+    url = git@github.com:chloneda/demo.git
+    fetch = +refs/heads/*:refs/remotes/github/*
+[remote "gitee"]
+    url = git@gitee.com:chloneda/demo.git
+    fetch = +refs/heads/*:refs/remotes/gitee/*
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+```
+查看远程库
+通过以上两种方式的任一种方式配置完成后，我们用``git remote -v``查看远程库信息：
+```bash
+gitee   git@gitee.com:chloneda/demo.git (fetch)
+gitee   git@gitee.com:chloneda/demo.git (push)
+github  git@github.com:chloneda/demo.git (fetch)
+github  git@github.com:chloneda/demo.git (push)
+```
+可以看到两个远程库，说明配置生效了。
