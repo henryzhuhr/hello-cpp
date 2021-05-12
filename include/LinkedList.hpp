@@ -34,21 +34,24 @@ template <class T> struct SingleNode
     T              data;
     SingleNode<T>* next = NULL;
 };
-template <class T> class LinkedList_
+template <class T> class LinkedList_Interface
 {
-  protected:
-    SingleNode<T>* head;
-    SingleNode<T>* ptail;
-    int            maxLength;
-    int            length;
+  public:
+    virtual ~LinkedList_Interface(){};
 
   public:
-    virtual LinkedList(const int maxLength = -1) = 0; // -1 mean no limit to length
+    virtual void TravelLinkedList()                           = 0;
+    virtual void SetMaxLength(const int maxLength = -1)       = 0;
+    virtual bool Append(const T data)                         = 0;
+    virtual bool Insert(const T data, const int index)        = 0;
+    virtual bool GetDataByIndex(T& data, const int index = 0) = 0;
+    virtual bool Remove(const int index = 0)                  = 0;
+    virtual bool Clear()                                      = 0;
 };
 
 namespace DataStruture
 {
-template <class T> class LinkedList : public LinkedList_
+template <class T> class LinkedList : public LinkedList_Interface<T>
 {
   private:
     SingleNode<T>* head;
@@ -74,7 +77,7 @@ template <class T> class LinkedList : public LinkedList_
      * @brief
      *
      */
-    void TravelLinkedList();
+    void TravelLinkedList() override;
 
   public:
     /**
@@ -82,7 +85,7 @@ template <class T> class LinkedList : public LinkedList_
      *
      * @param maxLength
      */
-    void SetMaxLength(const int maxLength = -1);
+    void SetMaxLength(const int maxLength = -1) override;
 
   public:
     /**
@@ -92,7 +95,7 @@ template <class T> class LinkedList : public LinkedList_
      * @return true
      * @return false
      */
-    bool Append(const T data);
+    bool Append(const T data) override;
     /**
      * @brief
      *
@@ -101,7 +104,7 @@ template <class T> class LinkedList : public LinkedList_
      * @return true
      * @return false
      */
-    bool Insert(const T data, const int index); // insert data in index i
+    bool Insert(const T data, const int index) override; // insert data in index i
   public:
     /**
      * @brief Get the Data By Index object
@@ -111,7 +114,7 @@ template <class T> class LinkedList : public LinkedList_
      * @return true
      * @return false
      */
-    bool GetDataByIndex(T& data, const int index = 0);
+    bool GetDataByIndex(T& data, const int index = 0) override;
 
   public:
     /**
@@ -121,14 +124,14 @@ template <class T> class LinkedList : public LinkedList_
      * @return true
      * @return false
      */
-    bool Remove(const int index = 0);
+    bool Remove(const int index = 0) override;
     /**
      * @brief
      *
      * @return true
      * @return false
      */
-    bool Clear();
+    bool Clear() override;
 };
 
 

@@ -11,7 +11,7 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "G:/Project/dataStructure-cpp/tools/mingw64/bin/gcc.exe",
+            "compilerPath": "${workspaceFolder}/tools/mingw64/bin/gcc.exe",
             "cStandard": "c11",
             "cppStandard": "c++11",
             "intelliSenseMode": "clang-x64"
