@@ -8,8 +8,7 @@ link_directories(${PROJECT_SOURCE_DIR}/bin)
 add_executable(test_linkedlist test_linkedlist.cpp)
 
 
-add_custom_target(copyCppdll
-  COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libstdc++-6.dll ${PROJECT_SOURCE_DIR}/bin
-  COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libwinpthread-1.dll ${PROJECT_SOURCE_DIR}/bin
-  COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libgcc_s_seh-1.dll ${PROJECT_SOURCE_DIR}/bin
-  )
+
+file(COPY ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libstdc++-6.dll DESTINATION ${PROJECT_SOURCE_DIR}/bin FOLLOW_SYMLINK_CHAIN)
+file(COPY ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libwinpthread-1.dll DESTINATION ${PROJECT_SOURCE_DIR}/bin FOLLOW_SYMLINK_CHAIN)
+file(COPY ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libgcc_s_seh-1.dll DESTINATION ${PROJECT_SOURCE_DIR}/bin FOLLOW_SYMLINK_CHAIN)

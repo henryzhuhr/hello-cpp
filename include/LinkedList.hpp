@@ -34,10 +34,21 @@ template <class T> struct SingleNode
     T              data;
     SingleNode<T>* next = NULL;
 };
+template <class T> class LinkedList_
+{
+  protected:
+    SingleNode<T>* head;
+    SingleNode<T>* ptail;
+    int            maxLength;
+    int            length;
+
+  public:
+    virtual LinkedList(const int maxLength = -1) = 0; // -1 mean no limit to length
+};
 
 namespace DataStruture
 {
-template <class T> class LinkedList
+template <class T> class LinkedList : public LinkedList_
 {
   private:
     SingleNode<T>* head;
@@ -48,74 +59,74 @@ template <class T> class LinkedList
   public:
     /**
      * @brief Construct a new Linked List object
-     * 
-     * @param maxLength 
+     *
+     * @param maxLength
      */
     LinkedList(const int maxLength = -1); // -1 mean no limit to length
     /**
      * @brief Destroy the Linked List object
-     * 
+     *
      */
     ~LinkedList();
 
   public:
     /**
-     * @brief 
-     * 
+     * @brief
+     *
      */
     void TravelLinkedList();
 
   public:
     /**
      * @brief Set the Max Length object
-     * 
-     * @param maxLength 
+     *
+     * @param maxLength
      */
     void SetMaxLength(const int maxLength = -1);
 
   public:
     /**
-     * @brief 
-     * 
-     * @param data 
-     * @return true 
-     * @return false 
+     * @brief
+     *
+     * @param data
+     * @return true
+     * @return false
      */
     bool Append(const T data);
     /**
-     * @brief 
-     * 
-     * @param data 
-     * @param index 
-     * @return true 
-     * @return false 
+     * @brief
+     *
+     * @param data
+     * @param index
+     * @return true
+     * @return false
      */
     bool Insert(const T data, const int index); // insert data in index i
   public:
     /**
      * @brief Get the Data By Index object
-     * 
-     * @param data 
-     * @param index 
-     * @return true 
-     * @return false 
+     *
+     * @param data
+     * @param index
+     * @return true
+     * @return false
      */
     bool GetDataByIndex(T& data, const int index = 0);
 
   public:
     /**
-     * @brief 
-     * 
-     * @param index 
-     * @return true 
-     * @return false 
+     * @brief
+     *
+     * @param index
+     * @return true
+     * @return false
      */
     bool Remove(const int index = 0);
     /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
+     * @brief
+     *
+     * @return true
+     * @return false
      */
     bool Clear();
 };
