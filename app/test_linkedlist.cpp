@@ -1,5 +1,5 @@
 #include <iostream>
-#include "LinkedList.hpp"
+#include "DataStruture/LinkedList.hpp"
 #define MAGENTA    "\033[35m"
 #define NONE_COLOR "\033[0m"
 

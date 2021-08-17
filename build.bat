@@ -12,6 +12,8 @@ set path=%PATH%;%MinGW64_BIN%
 
 rmdir /s /q bin
 rmdir /s /q build
+
+
 mkdir build
 cd build
 cmake .. ^
