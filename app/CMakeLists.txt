@@ -5,7 +5,9 @@ message(" BINARY DIR:" ${PROJECT_SOURCE_DIR}/bin)
 
 link_directories(${PROJECT_SOURCE_DIR}/bin)
 
-add_executable(test_linkedlist test_linkedlist.cpp)
+# add_executable(test-linkedlist test-linkedlist.cpp)
+add_executable(test-myclass test-myclass.cpp)
+target_link_libraries(test-myclass myClass)
 
 
 

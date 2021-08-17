@@ -13,5 +13,5 @@ set(CMAKE_CXX_FLAGS  "-g -fexec-charset=utf-8 -m64 ")
 set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
 
-# add_subdirectory(src)
+add_subdirectory(src)
 add_subdirectory(app)
