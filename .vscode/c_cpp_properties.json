@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "Win64",
+            "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/include"
@@ -11,9 +11,9 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "C:/Users/Henryzhu/Programs/mingw64/bin/gcc.exe",
-            "cStandard": "c11",
-            "cppStandard": "c++11",
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
             "intelliSenseMode": "clang-x64",
             "configurationProvider": "ms-vscode.cmake-tools"
         }

@@ -15,8 +15,6 @@ AlignConsecutiveMacros: true
 # === 连续赋值时，对齐所有等号 ===
 AlignConsecutiveAssignments: true
 
-# 连续声明时，对齐所有声明的变量名
-AlignConsecutiveBitFields: false
 
 # 连续声明时，对齐所有声明的变量名
 AlignConsecutiveDeclarations: true 
@@ -25,7 +23,7 @@ AlignConsecutiveDeclarations: true
 AlignEscapedNewlines: Right
 
 # 水平对齐二元和三元表达式的操作数
-AlignOperands:   Align
+AlignOperands: true
 
 # === 对齐连续的尾随的注释 ===
 AlignTrailingComments: true
@@ -39,7 +37,6 @@ AllowAllConstructorInitializersOnNextLine: true
 # 允许函数声明的所有参数在放在下一行
 AllowAllParametersOfDeclarationOnNextLine: true
 
-AllowShortEnumsOnASingleLine: true
 
 # 不允许短的块放在同一行
 AllowShortBlocksOnASingleLine: Never
@@ -80,11 +77,8 @@ BraceWrapping:
   AfterObjCDeclaration: false
   AfterStruct:     false
   AfterUnion:      false
-  AfterExternBlock: false
   BeforeCatch:     false
   BeforeElse:      false
-  BeforeLambdaBody: false
-  BeforeWhile:     false
   IndentBraces:    false
   SplitEmptyFunction: true
   SplitEmptyRecord: true
@@ -142,15 +136,12 @@ IncludeCategories:
 IncludeIsMainRegex: '(Test)?$'
 IncludeIsMainSourceRegex: ''
 IndentCaseLabels: false
-IndentCaseBlocks: false
 IndentGotoLabels: true
 IndentPPDirectives: None
-IndentExternBlock: AfterExternBlock
 
 # === 缩进宽度 ===
 IndentWidth: 4
 IndentWrappedFunctionNames: false
-InsertTrailingCommas: None
 JavaScriptQuotes: Leave
 JavaScriptWrapImports: true
 KeepEmptyLinesAtTheStartOfBlocks: true
@@ -162,7 +153,6 @@ MaxEmptyLinesToKeep: 2
 NamespaceIndentation: None
 ObjCBinPackProtocolList: Auto
 ObjCBlockIndentWidth: 2
-ObjCBreakBeforeNestedBlockParam: true
 ObjCSpaceAfterProperty: false
 ObjCSpaceBeforeProtocolList: true
 PenaltyBreakAssignment: 2
@@ -209,9 +199,5 @@ StatementMacros:
 TabWidth:        8
 UseCRLF:         false
 UseTab:          Never
-WhitespaceSensitiveMacros:
-  - STRINGIZE
-  - PP_STRINGIZE
-  - BOOST_PP_STRINGIZE
-...
+
 

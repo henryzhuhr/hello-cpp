@@ -70,3 +70,8 @@ in file `.git/config`
 	url = https://github.com/<用户名>/<仓库名字>.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
 ```
+
+
+# Code style guide
+
+[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
