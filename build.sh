@@ -8,4 +8,5 @@ cmake ..
 make -j8
 
 cd ../bin
-./test
+# ./test
+./reference

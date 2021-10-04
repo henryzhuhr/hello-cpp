@@ -8,6 +8,9 @@ link_directories(${PROJECT_SOURCE_DIR}/bin)
 # add_executable(test-linkedlist test-linkedlist.cpp)
 add_executable(test test-linkedlist.cpp)
 
+# reference in CXX
+add_executable(reference reference.cpp)
+
 
 
 # file(COPY ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libstdc++-6.dll DESTINATION ${PROJECT_SOURCE_DIR}/bin FOLLOW_SYMLINK_CHAIN)
