@@ -9,4 +9,4 @@ make -j8
 
 cd ../bin
 # ./test
-./reference
+./memory_deep_copy
