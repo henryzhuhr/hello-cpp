@@ -5,27 +5,28 @@ cmake_minimum_required(VERSION 3.10)
 # ==================================
 #   Config Compiler (must before project() command)
 # ==================================
-
-# if (UNIX AND NOT APPLE) # Linux
-#     target_compile_definitions(compile-platform PUBLIC "IS_LINUX")
-# elseif (APPLE)          # MacOS
-#     target_compile_definitions(compile-platform PUBLIC "IS_MACOS")
-# elseif (WIN32)          # Windows
-#     target_compile_definitions(compile-platform PUBLIC "IS_WINDOWS")
-# endif ()
-
 # CMAKE_C_COMPILER
 if(NOT CMAKE_C_COMPILER)
-    # set(CMAKE_C_COMPILER /usr/bin/gcc)
-    # set(CMAKE_C_COMPILER /usr/bin/clang)
+    if (UNIX)
+        # set(CMAKE_C_COMPILER /usr/bin/gcc)
+        set(CMAKE_C_COMPILER /usr/bin/clang)
+    else()
+        # set(CMAKE_C_COMPILER ~/Programs/mingw64/bin/gcc)
+        set(CMAKE_C_COMPILER /LLVM/bin/clang.exe)
+    endif()
 endif()
 # get_filename_component(CMAKE_C_COMPILER ${CMAKE_C_COMPILER} ABSOLUTE)
 message(STATUS "[INFO] C compiler: ${CMAKE_C_COMPILER}")
 
 # CMAKE_CXX_COMPILER
 if(NOT CMAKE_CXX_COMPILER)
-    # set(CMAKE_C_COMPILER /usr/bin/g++)
-    # set(CMAKE_C_COMPILER /usr/bin/clang++)
+    if (UNIX)
+        # set(CMAKE_C_COMPILER /usr/bin/g++)
+        set(CMAKE_CXX_COMPILER /usr/bin/clang++)
+    else()
+        # set(CMAKE_C_COMPILER ~/Programs/LLVM/bin/g++)
+        set(CMAKE_CXX_COMPILER /LLVM/bin/clang++.exe)
+    endif()
 endif()
 # get_filename_component(CMAKE_CXX_COMPILER ${CMAKE_CXX_COMPILER} ABSOLUTE)
 message(STATUS "[INFO] CXX compiler: ${CMAKE_CXX_COMPILER}")
@@ -39,6 +40,5 @@ message(STATUS "[INFO] CXX compiler: ${CMAKE_CXX_COMPILER}")
 add_compile_options(-std=c++17 -Wall -Werror)
 
 project(dataStructure)
-
 
 add_subdirectory(app)
