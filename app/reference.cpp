@@ -28,16 +28,15 @@ std::ostream& operator<<(std::ostream& os, Person const& person) { return os << 
 
 int main()
 {
-#pragma region value copy
+    // region value copy
     Person person          = Person("tim", 10);
     Person person_value_cp = person;
     person.SetAge(11);
     std::cout << "Value: " << person << std::endl;
     std::cout << "Value: " << person_value_cp << std::endl;
-#pragma endregion
 
 
-#pragma region reference copy
+    // region reference copy
     Person& personRef_cp = person;
     person.SetAge(12);
     std::cout << "Reference: " << person << std::endl;
@@ -45,17 +44,16 @@ int main()
     personRef_cp.SetAge(13);
     std::cout << "Reference r: " << person << std::endl;
     std::cout << "Reference r: " << personRef_cp << std::endl;
-#pragma endregion
 
 
-#pragma region pointer copy
+    // region pointer copy
     Person* personPtr    = new Person("pointer", 10); // new in heap
     Person* personPtr_cp = personPtr;
     personPtr->SetAge(20);
     std::cout << "Reference: " << *personPtr << std::endl;
     std::cout << "Reference: " << *personPtr_cp << std::endl;
     delete personPtr;
-#pragma endregion
+
 
     Person person_cp_cons = person;
     person_cp_cons        = person;

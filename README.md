@@ -29,9 +29,10 @@ cd ../bin
     └─mingw64                       # mingw 64
 ```
 
-# Include
-## LinkedList
-[LinkedList.hpp](include/LinkedList.hpp)
+# Interesting C++
+- [linkedlist](app/test-linkedlist.cpp) : a Data Structure
+- [C++ Memory shallow copy](app/memory_shallow_copy.cpp) & [C++ Memory deep copy](app/memory_deep_copy.cpp)
+- [reference](app/reference.cpp)
 
 
 # Clang-Format
@@ -66,12 +67,10 @@ see [Clang documentation](https://clang.llvm.org/docs/ClangFormat.html) for more
 in file `.git/config`
 ```bash
 [remote "origin"]
-	url = https://gitee.com/<用户名>/<仓库名字>.git
 	url = https://github.com/<用户名>/<仓库名字>.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
 
 # Code style guide
-
-[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+see [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
