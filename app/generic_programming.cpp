@@ -12,4 +12,11 @@ void Swap(T& a, T& b)
     a    = b;
     b    = temp;
 }
-int main(void) { return 0; }
+int main(void)
+{
+    int a = 1;
+    int b = 2;
+    Swap(a, b);
+
+    return 0;
+}
