@@ -13,6 +13,6 @@ cmake ^
 make -j8
 
 cd ../bin
-memory_deep_copy.exe
+generic_programming.exe
 
 @REM rmdir /s /q "..\build"
