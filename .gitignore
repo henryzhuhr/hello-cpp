@@ -2,6 +2,7 @@
 tools/*
 bin
 build
+log
 
 # Prerequisites
 *.d

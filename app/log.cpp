@@ -37,8 +37,9 @@ int main(int argc, char* argv[])
     LOG(WARNING) << "warning test"; //输出一个Warning日志
     LOG(ERROR) << "error test";     //输出一个Error日志
 
+    // conditional log => if(condition){LOG(...)...}
     int num_cookies = 20;
-    LOG_IF(INFO, num_cookies > 10) << "Got lots of cookies"; //当条件满足时输出日志
+    LOG_IF(INFO, num_cookies > 10) << "Got lots of cookies";
 
     LOG_EVERY_N(INFO, 10) << "Got the " << google::COUNTER << "th cookie"; // google::COUNTER 记录该语句被执行次数，从1开始，在第一次运行输出日志之后，每隔 10 次再输出一次日志信息
 
