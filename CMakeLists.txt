@@ -41,4 +41,5 @@ add_compile_options(-std=c++17 -Wall -Werror)
 
 project(dataStructure)
 
-add_subdirectory(app)
+# add_subdirectory(app)
+add_subdirectory(test)

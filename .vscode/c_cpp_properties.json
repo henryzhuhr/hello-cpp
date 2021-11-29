@@ -40,7 +40,9 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/include"
+                "${workspaceFolder}/include",
+                "~/program/gflags/include",
+                "~/program/glog/include"
             ],
             "defines": [
                 "_DEBUG",
@@ -50,7 +52,7 @@
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "clang-x64",
+            "intelliSenseMode": "macos-clang-arm64",
             "configurationProvider": "ms-vscode.cmake-tools"
         }
           

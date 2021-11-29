@@ -4,9 +4,10 @@ cd build
 
 rm ./CMakeCache.txt
 
-cmake .. 
+cmake ..
 make -j8
 
 cd ../bin
 # ./test
-./memory_deep_copy
+./test-gflags
+./test-glog
