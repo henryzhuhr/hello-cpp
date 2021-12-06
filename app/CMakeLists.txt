@@ -18,11 +18,18 @@ add_executable(memory_deep_copy memory_deep_copy.cpp)
 # Generic Programming
 add_executable(generic_programming generic_programming.cpp)
 
-# Log
-include_directories(~/Programs/glog)
-find_package (glog 0.5.0 REQUIRED)
-add_executable(log log.cpp)
-target_link_libraries (log glog::glog)
+# Move Constructor
+add_executable(move_constructor move_constructor.cpp)
+
+# Initializer List
+add_executable(initializer_list initializer_list.cpp)
+
+# recursive print
+add_executable(recursive_print recursive_print.cpp)
+
+# rvalue
+add_executable(rvalue rvalue.cpp)
+
 
 # file(COPY ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libstdc++-6.dll DESTINATION ${PROJECT_SOURCE_DIR}/bin FOLLOW_SYMLINK_CHAIN)
 # file(COPY ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libwinpthread-1.dll DESTINATION ${PROJECT_SOURCE_DIR}/bin FOLLOW_SYMLINK_CHAIN)

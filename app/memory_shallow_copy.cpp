@@ -13,7 +13,6 @@ class Buffer
   public:
     explicit Buffer(int capacity)
     {
-        // : capacity(capacity), length(0), buf(new unsigned char[capacity]{0})
         this->capacity = capacity;
         this->length   = 0;
         this->buf      = new unsigned char[capacity]{0};

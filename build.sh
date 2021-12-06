@@ -8,6 +8,4 @@ cmake ..
 make -j8
 
 cd ../bin
-# ./test
-./test-gflags
-./test-glog
+./move_constructor

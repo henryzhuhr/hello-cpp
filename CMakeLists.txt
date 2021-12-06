@@ -37,9 +37,11 @@ message(STATUS "[INFO] CXX compiler: ${CMAKE_CXX_COMPILER}")
 # set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
 # set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
-add_compile_options(-std=c++17 -Wall -Werror)
+# add_compile_options(-std=c++17 -Wall -Werror)
+add_compile_options(-std=c++17 -Wall) # solve error: unused variable 'ints' [-Werror,-Wunused-variable]
+
 
 project(dataStructure)
 
-# add_subdirectory(app)
-add_subdirectory(test)
+add_subdirectory(app)
+# add_subdirectory(test)

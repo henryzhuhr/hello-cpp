@@ -11,12 +11,7 @@ class Buffer
     int            length;
 
   public:
-    explicit Buffer(int capacity)
-    {
-        this->capacity = capacity;
-        this->length   = 0;
-        this->buf      = new unsigned char[capacity]{0};
-    }
+    explicit Buffer(int capacity) : buf(new unsigned char[capacity]{0}), capacity(capacity), length(0) {}
     Buffer(Buffer& buffer)
     {
         this->capacity = buffer.capacity;
