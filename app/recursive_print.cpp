@@ -26,25 +26,15 @@ template <typename T, typename... U> void println(T t, U... u)
 template <typename... U> void print_foldExpression(U... u)
 {
     // Use fold expression to print all arguments
-    ((std::cout << u << " "), ...)<<std::endl;
+    ((std::cout << u << " "), ...) << std::endl;
     // 好处，不会递归创建模板函数，提高效率
 }
-template <typename... U> double Sum(U... u)
-{
-    return (... + u);
-}
-template <auto ...value> double Sum_auto()
-{
-    return (... + value );
-}
+template <typename... U> double Sum(U... u) { return (... + u); }
+template <auto... value> double Sum_auto() { return (... + value); }
 
 
-int GetNumber(){
-    return 42;
-}
-constexpr int GetNumber_(){
-    return 42;
-}
+int           GetNumber() { return 42; }
+constexpr int GetNumber_() { return 42; }
 
 int main(int argc, char* argv[])
 {
@@ -56,13 +46,13 @@ int main(int argc, char* argv[])
     print("hello", 1, "world", 3.14, "!");
     println("hello");
     println("hello", 1, "world", 3.14, "!");
-    print_foldExpression("[With fold Expression]","hello", 1, "world", 3.14, "!");
-    print_foldExpression(1,2.0,"C++ is Good");
-    print_foldExpression(Sum(1,2,3,4,5));
-    print_foldExpression(Sum_auto<1,1,3,4,5>());
+    print_foldExpression("[With fold Expression]", "hello", 1, "world", 3.14, "!");
+    print_foldExpression(1, 2.0, "C++ is Good");
+    print_foldExpression(Sum(1, 2, 3, 4, 5));
+    print_foldExpression(Sum_auto<1, 1, 3, 4, 5>());
 
-    int const number=1;
-    int ints[number];
+    int const number = 1;
+    int       ints[number];
     // int ints2[GetNumber()]; // Error: GetNumber() is not a constant expression
     int ints2[GetNumber_()]; // Success: GetNumber_() is a constant expression
 
