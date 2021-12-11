@@ -8,4 +8,4 @@ cmake ..
 make -j8
 
 cd ../bin
-./move_constructor
+./test-gflags

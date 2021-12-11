@@ -11,7 +11,7 @@ include_directories(GFLAGS_INCLUDE_DIR)
 add_executable(test-gflags test-gflags.cpp)
 target_link_libraries (test-gflags gflags)
 
-# gflags
+# glog
 find_package(glog REQUIRED)
 include_directories(GLOG_INCLUDE_DIR)
 add_executable(test-glog test-glog.cpp)
