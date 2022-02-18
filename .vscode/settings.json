@@ -6,5 +6,12 @@
         "**/.DS_Store": true
     },
     "C_Cpp.errorSquiggles": "Enabled",
+    "files.associations": {
+        "*.md": "markdown",
+        "*.cjson": "jsonc",
+        "*.wxss": "css",
+        "*.wxs": "javascript",
+        "iostream": "cpp"
+    },
     
 }

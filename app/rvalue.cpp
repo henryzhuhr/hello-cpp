@@ -1,9 +1,5 @@
 #include <iostream>
 #include <string>
-
-
-#include <iostream>
-#include <string>
 #include <vector>
 
 #ifndef BUFFER_H
