@@ -7,5 +7,9 @@ rm ./CMakeCache.txt
 cmake ..
 make -j8
 
-cd ../bin
-./test-gflags
+cd ..
+
+
+# run STL
+cd bin/stl
+./stl_vector
