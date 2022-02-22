@@ -41,3 +41,7 @@ log
 *.out
 *.app
 
+# vuepress
+node_modules
+.temp
+.cache

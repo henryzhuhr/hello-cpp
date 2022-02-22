@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
         PrintVector_int(vec);
 
         std::cout << "insert        vec: ";
-        vec.insert(vec.begin() + 1, 3, 8);
+        vec.insert(vec.begin() + 1, 2, 8);
         PrintVector_int(vec);
     }
     std::cout << std::endl << std::endl;
