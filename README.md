@@ -29,12 +29,6 @@ cd ../bin
     └─mingw64                       # mingw 64
 ```
 
-# Interesting C++
-- [linkedlist](app/test-linkedlist.cpp) : a Data Structure
-- [C++ Memory shallow copy](app/memory_shallow_copy.cpp) & [C++ Memory deep copy](app/memory_deep_copy.cpp)
-- [reference](app/reference.cpp)
-
-
 # Clang-Format
 ## Download
 In [LLVM](https://llvm.org/builds/) official website, 
