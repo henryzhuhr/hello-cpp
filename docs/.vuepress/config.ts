@@ -3,7 +3,7 @@ import type { DefaultThemeOptions } from 'vuepress'
 
 export default defineUserConfig<DefaultThemeOptions>({
   // 站点配置
-  // base: '/Hello-Cpp/',
+  base: '/Hello-Cpp/',// XXX
   lang: 'zh-CN',
   title: 'Hello VuePress',
   description: 'blog for C++',
