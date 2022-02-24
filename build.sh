@@ -10,6 +10,12 @@ make -j8
 cd ..
 
 
+# cd bin
+# ./main
+
+
 # run STL
-cd bin/stl
-./stl_vector
+# cd bin/stl
+# ./stl_vector
+
+

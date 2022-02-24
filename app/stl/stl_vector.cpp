@@ -156,13 +156,24 @@ int main(int argc, char* argv[])
             }
             std::cout << std::endl;
         }
-        
     }
     {
         std::vector<int> vec{1, 2, 3, 4, 5, 6};
         std::cout << "address :  " << vec.data() << std::endl;
         vec.reserve(10);
         std::cout << "address :  " << vec.data() << std::endl;
+    }
+
+    // ====================================
+    //  -
+    // ====================================
+    {
+        std::vector<int> vec{1, 2, 3};
+        std::cout << "capacity:" << vec.capacity() << " address: " << vec.data() << std::endl;
+        vec.push_back(4);
+        std::cout << "capacity:" << vec.capacity() << " address: " << vec.data() << std::endl;
+        vec.insert(vec.end(), 3, 8);
+        std::cout << "capacity:" << vec.capacity() << " address: " << vec.data() << std::endl;
     }
     return 0;
 }

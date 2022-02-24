@@ -200,3 +200,38 @@ vec.empty();   // 0
 ```
 
 
+## vector扩容的原理
+
+做一个小测试，定义一个容器并初始化为 `[1,2,3]` ，不断向容器添加元素，来观察容器的变化
+```cpp
+std::vector<int> vec{1, 2, 3};  
+// capacity=3  address=0x6000027cc040 [1,2,3]
+
+vec.push_back(4);
+// capacity=6  address=0x6000025c9120 [1,2,3,4]
+
+vec.insert(vec.end(), 3, 8);
+// capacity=12 address=0x600002bc8270 [1,2,3,4,8,8,8]
+```
+根据地址和容器的容量变化，可以看出，当容器容量不足时:
+1. 会重新申请空间。新容器的容量是原来容器的**2倍**，不同编译器申请的空间不相同，MSVC申请1.5倍新空间，gcc/clang申请2倍新空间
+2. 将容器的元素全部复制/移动到新的容器内。
+3. 之前的指针、引用、迭代器会失效。需要重新生成
+
+Clang 中 `vector` 的源码可以看出，扩容操作是扩大2倍
+```cpp
+//  Precondition:  __new_size > capacity()
+template <class _Tp, class _Allocator>
+inline _LIBCPP_INLINE_VISIBILITY
+typename vector<_Tp, _Allocator>::size_type
+vector<_Tp, _Allocator>::__recommend(size_type __new_size) const
+{
+    const size_type __ms = max_size();
+    if (__new_size > __ms)
+        this->__throw_length_error();
+    const size_type __cap = capacity();
+    if (__cap >= __ms / 2)
+        return __ms;
+    return _VSTD::max<size_type>(2*__cap, __new_size);
+}
+```
