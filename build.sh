@@ -10,9 +10,10 @@ make -j8
 cd ..
 
 
-# cd bin
+cd bin
 # ./main
-
+./test-opencv "../images/lena.jpg"
+cd ..
 
 # run STL
 # cd bin/stl
