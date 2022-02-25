@@ -25,22 +25,20 @@ export default defineUserConfig<DefaultThemeOptions>({
           {
             text: 'Opencv',
             link: '/3rd_patry/opencv/opencv.md',
-            activeMatch: '/3rd_patry/',
+            activeMatch: '/3rd_patry/opencv/',
           },
           {
             text: 'glog',
             link: '/3rd_patry/glog/glog.md',
-            activeMatch: '/3rd_patry/',
+            activeMatch: '/3rd_patry/glog/',
           },
           {
             text: 'gflags',
             link: '/3rd_patry/gflags/gflags.md',
-            activeMatch: '/3rd_patry/',
+            activeMatch: '/3rd_patry/gflags/',
           },
         ],
       },
-      // 字符串 - 页面文件路径
-      '/bar/README.md',
     ],
   },
 })
