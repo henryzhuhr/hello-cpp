@@ -35,6 +35,9 @@ add_executable(recursive_print recursive_print.cpp)
 # rvalue
 add_executable(rvalue rvalue.cpp)
 
+# Lambda expression
+add_executable(lambda_expression lambda_expression.cpp)
+
 
 # file(COPY ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libstdc++-6.dll DESTINATION ${PROJECT_SOURCE_DIR}/bin FOLLOW_SYMLINK_CHAIN)
 # file(COPY ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libwinpthread-1.dll DESTINATION ${PROJECT_SOURCE_DIR}/bin FOLLOW_SYMLINK_CHAIN)

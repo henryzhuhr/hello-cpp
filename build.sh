@@ -12,7 +12,8 @@ cd ..
 
 cd bin
 # ./main
-./test-opencv "../images/lena.jpg"
+# ./test-opencv "../images/lena.jpg"
+./lambda_expression
 cd ..
 
 # run STL

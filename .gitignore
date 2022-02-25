@@ -1,12 +1,14 @@
+
+# MacOS
 .DS_Store
 */.DS_Store
 
+# vuepress
+dist
 
-# 
-tools/*
+# c++
 bin
 build
-log
 
 # Prerequisites
 *.d
