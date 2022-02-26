@@ -11,7 +11,9 @@ export default defineUserConfig<DefaultThemeOptions>({
   // 主题和它的配置
   theme: '@vuepress/theme-default',
   themeConfig: {
-    logo: 'https://vuejs.org/images/logo.png',
+    logo: '/logo/cpp.svg',
+    logoDark: '/logo/cpp-dark.svg',
+    repo: 'https://github.com/HenryZhuHR/Hello-Cpp',
     navbar: [
       // NavbarItem
       {
@@ -40,5 +42,9 @@ export default defineUserConfig<DefaultThemeOptions>({
         ],
       },
     ],
+    plugins:[
+      '@vuepress/plugin-palette',
+      { preset: 'sass' },
+    ]
   },
 })

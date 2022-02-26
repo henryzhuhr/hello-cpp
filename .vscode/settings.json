@@ -75,7 +75,11 @@
         "optional": "cpp",
         "sstream": "cpp",
         "unordered_map": "cpp",
-        "__functional_03": "cpp"
+        "__functional_03": "cpp",
+        "version": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "set": "cpp"
     },
     
 }
