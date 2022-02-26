@@ -79,7 +79,11 @@
         "version": "cpp",
         "deque": "cpp",
         "list": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "fstream": "cpp",
+        "iomanip": "cpp",
+        "queue": "cpp",
+        "stack": "cpp"
     },
     
 }

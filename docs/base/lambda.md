@@ -107,6 +107,10 @@ local  address: 0x16da6722c
 - `[param1, &param, ...]` 指定参数捕获
 - `[=]` 值捕获
 - `[&]` 引用捕获
+- 组合
+  - `[=, &a, &b]` 表示外部变量仅 `a` `b` 可以修改
+  - `[&, a, b]` 表示外部变量除了 `a` `b` 可以修改，其余不可以修改
+  - 不可以混合使用，例如 `[=, &a, b]`
 
 空捕获列表
 ```cpp
@@ -134,6 +138,32 @@ auto f   = [&] { val++; };
 f();    // val = 3
 ```
 
+组合
+
+仅变量 `a` `b` 可以修改；变量 `c` 不可以修改，但是可以访问
+```cpp
+int  a = 3, b = 4, c = 5;
+auto f = [=, &a, &b]
+{
+    a++;
+    b += c;
+    // c++; // error: value c can't be changed
+};
+f(); // a=4 b=9
+```
+
+## 用法
+
+### 与 for_each 一起使用
+```cpp
+int arr[] = {1, 2, 3, 4, 5};
+std::for_each(arr, arr + 5, [](int i) { std::cout << i << " "; });
+```
+
+```cpp
+int arr[] = {1, 2, 3, 4, 5};
+std::for_each(arr, arr + 5, [](int& i) { i += 1; }); // arr = [2, 3, 4, 5, 6]
+```
 
 <!--
 ```cpp

@@ -34,5 +34,25 @@ int main(int argc, char* argv[])
         auto f = [a, &b] { std::cout << a << " " << b << std::endl; };
         f();
     }
+    {
+        int  a = 3, b = 4, c = 5;
+        auto f = [=, &a, &b]
+        {
+            a++;
+            b += c;
+            // c++; // error: value c can't be changed
+        };
+        f();
+        std::cout << "a: " << a << "  b: " << b << std::endl;
+    }
+    {
+        int arr[] = {1, 2, 3, 4, 5};
+        std::for_each(arr, arr + 5, [](int i) { std::cout << i + 1 << " "; });
+        std::cout << std::endl;
+        std::for_each(arr, arr + 5, [](int& i) { i += 1; });
+        std::for_each(arr, arr + 5, [](int i) { std::cout << i + 1 << " "; });
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
     return 0;
 }

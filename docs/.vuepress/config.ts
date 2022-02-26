@@ -1,5 +1,6 @@
 import { defineUserConfig } from 'vuepress'
 import type { DefaultThemeOptions } from 'vuepress'
+import path from 'path'
 
 export default defineUserConfig<DefaultThemeOptions>({
   // 站点配置
@@ -7,7 +8,16 @@ export default defineUserConfig<DefaultThemeOptions>({
   lang: 'zh-CN',
   title: 'Hello C++',
   description: 'blog for C++',
-
+  head: [
+    ['link', { rel: 'icon', href: '/logo/cpp.svg' }],
+    [
+      'meta',
+      {
+        name: 'keywords',
+        content: 'C++,vuepress,markdown,github pages',
+      },
+    ],
+  ],
   // 主题和它的配置
   theme: '@vuepress/theme-default',
   themeConfig: {
@@ -42,9 +52,8 @@ export default defineUserConfig<DefaultThemeOptions>({
         ],
       },
     ],
-    plugins:[
-      '@vuepress/plugin-palette',
-      { preset: 'sass' },
+    plugins: [
+      // path.resolve(__dirname, './plugins/vuepress-plugin-code-copy'),
     ]
   },
 })
