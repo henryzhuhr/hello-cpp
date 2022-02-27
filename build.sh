@@ -13,7 +13,7 @@ cd ..
 cd bin
 # ./main
 # ./test-opencv "../images/lena.jpg"
-./lambda_expression
+./lvalue_rvalue
 cd ..
 
 # run STL
