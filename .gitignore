@@ -1,9 +1,12 @@
 
-# MacOS
+# OS
 .DS_Store
 */.DS_Store
 
 # vuepress
+node_modules
+.temp
+.cache
 dist
 
 # c++
@@ -43,7 +46,3 @@ build
 *.out
 *.app
 
-# vuepress
-node_modules
-.temp
-.cache

@@ -10,7 +10,7 @@ C++的lambda可以认为是编译器的一个语法糖，用于生成一个匿�
 
 -->
 
-[Microsoft ](https://docs.microsoft.com/en-us/cpp/cpp/lambda-expressions-in-cpp?view=msvc-170)
+
 
 ## 基本语法
 ```cpp
@@ -172,3 +172,7 @@ std::for_each(arr, arr + 5, [](int& i) { i += 1; }); // arr = [2, 3, 4, 5, 6]
 -->
 
 
+
+
+## Reference 
+- [Microsoft ](https://docs.microsoft.com/en-us/cpp/cpp/lambda-expressions-in-cpp?view=msvc-170)
