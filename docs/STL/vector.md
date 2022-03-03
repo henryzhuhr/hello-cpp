@@ -22,7 +22,7 @@ std::vector<int> vec(5);  // vec = [0,0,0,0,0]
 
 1. `vector(int nSize,const t& t)`
 
-定义 int 类型的长度为 5 的数组 ，并且将元素初始化为2
+定义 int 类型的长度为 3 的数组 ，并且将元素初始化为2
 ```cpp
 std::vector<int> vec(3,2);  // vec = [2,2,2]
 ```

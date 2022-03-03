@@ -6,9 +6,15 @@
 - [右值引用](./base/lvalue_rvalue.md)
 ## STL
 - 容器 
-  - [vector](./STL/stl_vector.md):[`std::vector`](https://en.cppreference.com/w/cpp/container/vector)
+  - [vector](./STL/vector.md): [`std::vector`](https://en.cppreference.com/w/cpp/container/vector)
 - 容器适配器
-  - [stack](./STL/stl_stack.md)
+  - [stack](./STL/stack.md)
+
+
+## 算法
+- [动态规划](./algorithm/DynamicProgramming.md)
+
+## 设计模型
 
 
 ## 3rd-party
