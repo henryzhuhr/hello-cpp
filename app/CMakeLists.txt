@@ -1,6 +1,8 @@
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-# add_subdirectory(stl)
+add_subdirectory(stl)
+add_subdirectory(algorithm)
+add_subdirectory(design_pattern)
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 message(" BINARY DIR:" ${PROJECT_SOURCE_DIR}/bin)
