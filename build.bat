@@ -10,7 +10,18 @@ cmake -DCMAKE_BUILD_TYPE:STRING=Debug ..
 @REM cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release
 make -j8
 
-cd ../bin
-log.exe
+cd ..
 
-@REM rmdir /s /q "..\build"
+
+@REM --- RUN:: MAIN ---
+cd bin
+cd ..
+
+@REM --- RUN:: STL ---
+cd bin
+cd ..
+
+@REM --- RUN:: algorithm ---
+cd bin/algorithm
+dynamic_programming.exe
+cd ../..
