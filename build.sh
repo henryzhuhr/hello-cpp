@@ -18,11 +18,17 @@ cd bin
 # ./lvalue_rvalue
 cd ..
 
+# --- RUN:: CXX11 ---
+cd bin/cxx11
+./std_function
+cd ../..
+
 # --- RUN:: STL ---
-# cd bin/stl
+cd bin/stl
 # ./stl_vector
+cd ../..
 
 # --- RUN:: algorithm ---
 cd bin/algorithm
-./dynamic_programming
+# ./dynamic_programming
 cd ../..

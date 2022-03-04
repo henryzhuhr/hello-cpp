@@ -1,5 +1,6 @@
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
+add_subdirectory(cxx11)
 add_subdirectory(stl)
 add_subdirectory(algorithm)
 add_subdirectory(design_pattern)
@@ -30,8 +31,7 @@ link_directories(${PROJECT_SOURCE_DIR}/bin)
 
 # add_executable(rvalue rvalue.cpp)                           # rvalue
 
-# add_executable(lambda_expression lambda_expression.cpp) # Lambda expression
-add_executable(lvalue_rvalue lvalue_rvalue.cpp)         # lvalue rvalue
+
 
 # file(COPY ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libstdc++-6.dll DESTINATION ${PROJECT_SOURCE_DIR}/bin FOLLOW_SYMLINK_CHAIN)
 # file(COPY ${PROJECT_SOURCE_DIR}/tools/mingw64/bin/libwinpthread-1.dll DESTINATION ${PROJECT_SOURCE_DIR}/bin FOLLOW_SYMLINK_CHAIN)
