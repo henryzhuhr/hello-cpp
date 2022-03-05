@@ -21,6 +21,7 @@ cd ..
 # --- RUN:: CXX11 ---
 cd bin/cxx11
 ./std_function
+./std_bind
 cd ../..
 
 # --- RUN:: STL ---
