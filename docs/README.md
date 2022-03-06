@@ -3,8 +3,9 @@
 
 ## C++11
 - [Lambda 表达式](./cxx11/lambda.md)
-- [std::function/std::bind](./cxx11/std_function_bind.md)
+- [std::function / std::bind](./cxx11/std_function_bind.md)
 - [右值引用](./cxx11/lvalue_rvalue.md)
+- [可变参数模板 (variadic templates)](./cxx11/variadic_templates.md)
 ## STL
 - 容器 
   - [vector](./STL/vector.md): [`std::vector`](https://en.cppreference.com/w/cpp/container/vector)

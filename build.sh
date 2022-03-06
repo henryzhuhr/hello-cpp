@@ -20,8 +20,10 @@ cd ..
 
 # --- RUN:: CXX11 ---
 cd bin/cxx11
-./std_function
-./std_bind
+# ./std_function
+# ./std_bind
+./variadic_templates
+./variadic_templates-recursive_print
 cd ../..
 
 # --- RUN:: STL ---
