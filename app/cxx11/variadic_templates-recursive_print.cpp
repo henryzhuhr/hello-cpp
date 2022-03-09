@@ -43,13 +43,14 @@ int main(int argc, char* argv[])
     std::cout << std::get<1>(tup) << std::endl;
     std::cout << std::get<2>(tup) << std::endl;
 
-    print("hello", 1, "world", 3.14, "!");
-    println("hello");
-    println("hello", 1, "world", 3.14, "!");
+    // print("hello", 1, "world", 3.14, "!");
+    // println("hello");
+    // println("hello", 1, "world", 3.14, "!");
     print_foldExpression("[With fold Expression]", "hello", 1, "world", 3.14, "!");
-    print_foldExpression(1, 2.0, "C++ is Good");
-    print_foldExpression(Sum(1, 2, 3, 4, 5));
-    print_foldExpression(Sum_auto<1, 1, 3, 4, 5>());
+    // print_foldExpression(1, 2.0, "C++ is Good");
+    // print_foldExpression(Sum(1, 2, 3, 4, 5));
+
+    // print_foldExpression(Sum_auto<1, 1, 3, 4, 5>());
 
     int const number = 1;
     int       ints[number];

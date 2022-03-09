@@ -22,7 +22,7 @@ cd ..
 cd bin/cxx11
 # ./std_function
 # ./std_bind
-./variadic_templates
+# ./variadic_templates
 ./variadic_templates-recursive_print
 cd ../..
 
