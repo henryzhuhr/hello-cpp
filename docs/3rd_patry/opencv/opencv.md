@@ -13,14 +13,15 @@
 
 ## 编译过程
 
-编译过程以 `OpenCV 4.5.4` 为例，根据下载的版本修改版本号
+编译过程以 `OpenCV 4.5.5` 为例，根据下载的版本修改版本号 `VERSION`
+> [OpenCV 5.0.0-pre](https://docs.opencv.org/5.x/index.html) 文档已经放出
 
 在源码同级目录下新建脚本 `build-opencv.sh`
 ```sh
 .
 ├── build-opencv.sh
-├── opencv-4.5.4
-└── opencv_contrib-4.5.4
+├── opencv-4.5.5
+└── opencv_contrib-4.5.5
 ```
 
 在脚本中，写入下面内容
@@ -60,7 +61,7 @@ rm -rf build
 zsh build-opencv.sh     # for Darwin
 bash build-opencv.sh    # for Linux
 ```
-> 这里大概率会在 `cmake` 配置 OpenCV 过程中出现大量 `Warning` ，这是由于网络环境非科学上网导致的，但是缺少的文件可能会在 make 编译过程中造成失败，这一部分参考 [配置中未下载的文件](#配置中未下载的文件) 进行解决
+> 这里大概率会在 `cmake` 配置 OpenCV 过程中出现大量 `Warning` ，这是由于网络环境导致的，但是缺少的文件可能会在 make 编译过程中造成失败，这一部分考虑科学上网或者参考 [配置中未下载的文件](#配置中未下载的文件) 进行解决
 
 
 编译完成后会安装到同级目录下的 `opencv` 目录中
@@ -107,7 +108,7 @@ rm -rf build
 这时候可以看到 cmake 已经找到了 OpenCV 
 ```sh
 -- OpenCV status:
---     Opencv version: 4.5.4
+--     Opencv version: 4.5.5
 --     Opencv include: ~/program/opencv/include/opencv4
 -- Configuring done
 -- Generating done
