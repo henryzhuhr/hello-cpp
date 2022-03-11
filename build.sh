@@ -11,27 +11,41 @@ cd ..
 
 
 
+CURRENTDIR=$(pwd)
+
+# --- RUN:: TEST ---
+cd $CURRENTDIR/bin/test
+./test-opencv $CURRENTDIR/images/lena.jpg
+./test-gflags
+./test-glog ./test_glog.log
+
+
 # --- RUN:: MAIN ---
-cd bin
+cd $CURRENTDIR/bin
 # ./main
 # ./test-opencv "../images/lena.jpg"
 # ./lvalue_rvalue
-cd ..
+
+
+
 
 # --- RUN:: CXX11 ---
-cd bin/cxx11
+cd $CURRENTDIR/bin/cxx11
 # ./std_function
 # ./std_bind
 # ./variadic_templates
-./variadic_templates-recursive_print
-cd ../..
+# ./variadic_templates-recursive_print
+
+
+
 
 # --- RUN:: STL ---
-cd bin/stl
+cd $CURRENTDIR/bin/stl
 # ./stl_vector
-cd ../..
+
+
+
 
 # --- RUN:: algorithm ---
-cd bin/algorithm
+cd $CURRENTDIR/bin/algorithm
 # ./dynamic_programming
-cd ../..

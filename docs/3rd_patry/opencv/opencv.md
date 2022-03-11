@@ -1,9 +1,14 @@
 
-
 # 源码编译 OpenCV 
-[Installation in MacOS](https://docs.opencv.org/4.x/d0/db2/tutorial_macos_install.html)
 
-[OpenCV configuration options reference](https://docs.opencv.org/4.x/db/d05/tutorial_config_reference.html)
+- [源码编译 OpenCV](#源码编译-opencv)
+  - [编译过程](#编译过程)
+  - [测试](#测试)
+  - [报错解决方案](#报错解决方案)
+    - [配置中未下载的文件](#配置中未下载的文件)
+
+源码编译参考 Installation in [Linux](https://docs.opencv.org/4.5.5/d7/d9f/tutorial_linux_install.html) / [MacOS](https://docs.opencv.org/4.x/d0/db2/tutorial_macos_install.html) 以及编译配置配置 [OpenCV configuration options reference](https://docs.opencv.org/4.x/db/d05/tutorial_config_reference.html)
+> 从源码编译主要针对 Unix 系统， Windows NO
 
 
 ## 编译过程
@@ -23,7 +28,7 @@
 > 
 > 如果仍然希望在系统内安装，那么只需要将参数 `-DCMAKE_INSTALL_PREFIX` 删除，则会默认安装到 `/usr/local/` 内，或者也可以指定 `-DCMAKE_INSTALL_PREFIX` 为 `/usr/local`
 ```sh
-VERSION=4.5.4
+VERSION=4.5.5
 
 cd opencv-${VERSION}
 rm -rf build
@@ -39,8 +44,8 @@ cmake .. \
     -DBUILD_STATIC_LIBS=ON \
     -DBUILD_opencv_apps=ON \
     -DBUILD_EXAMPLES=OFF
-# NUM_CORES=`sysctl -n hw.ncpu`   # for Darwin
-NUM_CORES=`nproc --all`         # for Linux
+NUM_CORES=`sysctl -n hw.ncpu`   # for Darwin
+# NUM_CORES=`nproc --all`         # for Linux
 make -j${NUM_CORES}
 make install
 
@@ -55,6 +60,7 @@ rm -rf build
 zsh build-opencv.sh     # for Darwin
 bash build-opencv.sh    # for Linux
 ```
+> 这里大概率会在 `cmake` 配置 OpenCV 过程中出现大量 `Warning` ，这是由于网络环境非科学上网导致的，但是缺少的文件可能会在 make 编译过程中造成失败，这一部分参考 [配置中未下载的文件](#配置中未下载的文件) 进行解决
 
 
 编译完成后会安装到同级目录下的 `opencv` 目录中
@@ -107,3 +113,44 @@ rm -rf build
 -- Generating done
 -- Build files have been written to: ...
 ```
+
+## 报错解决方案
+### 配置中未下载的文件
+在运行 cmake 配置 OpenCV 的时候，出现无法下载文件
+```sh
+-- xfeatures2d/boostdesc: Download: boostdesc_bgm.i
+-- Try 1 failed
+CMake Warning at cmake/OpenCVDownload.cmake:202 (message):
+  xfeatures2d/boostdesc: Download failed: 56;"Failure when receiving data
+  from the peer"
+
+  For details please refer to the download log file:
+
+  .../opencv-4.5.5/build/CMakeDownloadLog.txt
+
+Call Stack (most recent call first):
+  .../opencv_contrib-4.5.5/modules/xfeatures2d/cmake/download_boostdesc.cmake:22 (ocv_download)
+  .../opencv_contrib-4.5.5/modules/xfeatures2d/CMakeLists.txt:12 (download_boost_descriptors)
+```
+
+
+根据配置时候出现的问题，我们可以在 `opencv-4.5.5/build/CMakeDownloadLog.txt` 中找到需要下载的文件内容
+```txt
+#do_copy "boostdesc_bgm.i" "0ea90e7a8f3f7876d450e4149c97c74f" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm.i" ".../opencv-4.5.5/build/downloads/xfeatures2d"
+#missing ".../opencv-4.5.5/build/downloads/xfeatures2d/boostdesc_bgm.i"
+#cmake_download ".../opencv-4.5.5/.cache/xfeatures2d/boostdesc/0ea90e7a8f3f7876d450e4149c97c74f-boostdesc_bgm.i" "https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm.i"
+```
+表示，确保复制 (do_copy) 从链接 [https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm.i](https://raw.githubusercontent.com/opencv/opencv_3rdparty/34e4206aef44d50e6bbcd0ab06354b52e7466d26/boostdesc_bgm.i) 中下载的文件 `boostdesc_bgm.i` ，到目录 `opencv-4.5.5/build/downloads/xfeatures2d/boostdesc_bgm.i` 下
+
+
+因此，如果在编译过程中出现因为缺少文件而导致的报错：
+```sh
+.../opencv/opencv_contrib-4.5.5/modules/xfeatures2d/src/boostdesc.cpp:654:20: fatal error: boostdesc_bgm.i: 没有那个文件或目录
+           #include "boostdesc_bgm.i"
+                    ^~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [modules/xfeatures2d/CMakeFiles/opencv_xfeatures2d.dir/build.make:417：modules/xfeatures2d/CMakeFiles/opencv_xfeatures2d.dir/src/boostdesc.cpp.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:8170：modules/xfeatures2d/CMakeFiles/opencv_xfeatures2d.dir/all] 错误 2
+make[1]: *** 正在等待未完成的任务....
+```
+则需要根据配置时候到提示，下载文件到指定的目录下
