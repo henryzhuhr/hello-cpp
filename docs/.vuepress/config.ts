@@ -1,6 +1,7 @@
 import { defineUserConfig } from 'vuepress'
 import type { DefaultThemeOptions } from 'vuepress'
 import path from 'path'
+import { navbar } from './navbar'
 
 export default defineUserConfig<DefaultThemeOptions>({
   // 站点配置
@@ -24,34 +25,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     logo: '/logo/cpp.svg',
     logoDark: '/logo/cpp-dark.svg',
     repo: 'https://github.com/HenryZhuHR/Hello-Cpp',
-    navbar: [
-      // NavbarItem
-      {
-        text: 'Home',
-        link: '/',
-      },
-      // NavbarGroup
-      {
-        text: '3rd-party',
-        children: [
-          {
-            text: 'Opencv',
-            link: '/3rd_patry/opencv/opencv.md',
-            activeMatch: '/3rd_patry/opencv/',
-          },
-          {
-            text: 'glog',
-            link: '/3rd_patry/glog/glog.md',
-            activeMatch: '/3rd_patry/glog/',
-          },
-          {
-            text: 'gflags',
-            link: '/3rd_patry/gflags/gflags.md',
-            activeMatch: '/3rd_patry/gflags/',
-          },
-        ],
-      },
-    ],
+    navbar: navbar,
     plugins: [
       // path.resolve(__dirname, './plugins/vuepress-plugin-code-copy'),
     ]
