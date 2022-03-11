@@ -30,7 +30,7 @@ $codeLang: 'c' 'cpp' 'cs' 'css' 'dart' 'docker' 'fs' 'go' 'html' 'java' 'js'
   --c-text-light: #3a5169;
   --c-text-lighter: #4e6e8e;
   --c-text-lightest: #6a8bad;
-  --c-text-quote: #999999;
+  --c-text-quote: #7a7a7a;
 
   // border colors
   --c-border: #eaecef;
@@ -95,10 +95,11 @@ html.dark {
   --c-bg-lighter: #262c34;
 
   // text colors
-  --c-text: #adbac7;
+  --c-text: #d6dde4;
   --c-text-light: #96a7b7;
   --c-text-lighter: #8b9eb0;
   --c-text-lightest: #8094a8;
+  --c-text-quote: #a5a5a5;
 
   // border colors
   --c-border: #3e4c5a;
