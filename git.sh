@@ -1,7 +1,7 @@
 # --- add ---
 # git add <filename>
 git add *
-git commit -m "代码提交信息"
+git commit -m "meesage"
 
 
 # --- pull ---
@@ -11,4 +11,4 @@ git merge main
 
 
 # --- push ---
-git push origin master
+git push origin main
