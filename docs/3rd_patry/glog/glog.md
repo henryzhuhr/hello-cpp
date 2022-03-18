@@ -15,7 +15,8 @@ cmake .. \
     -DCMAKE_INSTALL_PREFIX=../../${LIB_NAME} \
     -DBUILD_SHARED_LIBS=ON \
     -DBUILD_STATIC_LIBS=ON
-NUM_CORES=`sysctl -n hw.ncpu`
+NUM_CORES=`sysctl -n hw.ncpu`   # for Darwin
+# NUM_CORES=`nproc --all`         # for Linux
 make -j${NUM_CORES}
 make install
 

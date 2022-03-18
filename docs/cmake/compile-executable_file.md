@@ -23,6 +23,7 @@ cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project(Compile_Executable_File LANGUAGES CXX)
 add_subdirectory(app)
 ```
+---
 `cmake_minimum_required` 规定构建当前项目的所需CMake的最低版本，当构建项目使用的CMake不满足做个最低版本要求，则会出现报错，添加 `FATAL_ERROR` 则在不满足条件的情况下产生致命报错
 ```cmake
 cmake_minimum_required(VERSION 3.5)
@@ -43,10 +44,17 @@ add_subdirectory(app)
 ```
 
 
+
 ## 配置编译可执行文件
-在 `app/CMakeLists.txt` 配置编译可执行文件
-  
-设置可执行文件输出路径 `EXECUTABLE_OUTPUT_PATH` 为 `${PROJECT_SOURCE_DIR}/bin`
+在 `app/CMakeLists.txt` 配置编译可执行文件，文件内容如下
+```cmake
+# app/CMakeLists.txt
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+add_executable(compile-executable_file main.cpp)
+add_executable(${PROJECT_NAME} main.cpp)
+```
+---
+首先是设置可执行文件输出路径 `EXECUTABLE_OUTPUT_PATH` 为 `${PROJECT_SOURCE_DIR}/bin`
 ```cmake
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 ```
