@@ -6,7 +6,7 @@ git commit -m "meesage"
 
 # --- pull ---
 # git merge <branch>
-git pull
+git fetch
 git merge main
 
 

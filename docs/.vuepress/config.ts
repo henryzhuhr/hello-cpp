@@ -27,7 +27,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     repo: 'https://github.com/HenryZhuHR/Hello-Cpp',
     navbar: navbar,
     plugins: [
-      // path.resolve(__dirname, './plugins/vuepress-plugin-code-copy'),
+      path.resolve(__dirname, './plugin/copy-code/lib/index.ts'),
     ]
   },
 })

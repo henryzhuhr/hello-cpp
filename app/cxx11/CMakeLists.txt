@@ -12,3 +12,4 @@ add_executable(
     variadic_templates-recursive_print
     variadic_templates-recursive_print.cpp
     )                                                       # variadic templates
+add_executable(smart_pointer smart_pointer.cpp)             # smart pointer
