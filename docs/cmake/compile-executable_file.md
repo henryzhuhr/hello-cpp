@@ -52,6 +52,7 @@ add_subdirectory(app)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 add_executable(compile-executable_file main.cpp)
 add_executable(${PROJECT_NAME} main.cpp)
+# target_link_libraries(${PROJECT_NAME} myLib_shared)
 ```
 ---
 首先是设置可执行文件输出路径 `EXECUTABLE_OUTPUT_PATH` 为 `${PROJECT_SOURCE_DIR}/bin`
@@ -66,6 +67,11 @@ add_executable(compile-executable_file main.cpp)
 add_executable(${PROJECT_NAME} main.cpp)
 ```
 > 你也可以指定输出的名称为项目名称 `${PROJECT_NAME}` ，也就是在 `project()` 指定的项目名称
+
+如果需要添加其他的库，可以通过 `target_link_libraries` 来添加
+```bash
+# target_link_libraries(${PROJECT_NAME} myLib_shared)
+```
 
 编写完项目的全部 `CMakeLists.txt` 文件后，接下来就是如何构建并且编译项目
 
