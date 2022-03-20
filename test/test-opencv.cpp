@@ -19,8 +19,9 @@ int main(int argc, char* argv[])
         printf("No image data \n");
         return -1;
     }
-    cv::namedWindow("Display Image", cv::WindowFlags::WINDOW_AUTOSIZE);
-    cv::imshow("Display Image", image);
-    cv::waitKey(2000);
+    cv::imwrite("./img.png",image);
+    // cv::namedWindow("Display Image", cv::WindowFlags::WINDOW_AUTOSIZE);
+    // cv::imshow("Display Image", image);
+    // cv::waitKey(2000);
     return 0;
 }

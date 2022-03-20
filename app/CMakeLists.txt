@@ -1,20 +1,20 @@
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-add_subdirectory(cxx11)
-add_subdirectory(stl)
-add_subdirectory(algorithm)
-add_subdirectory(design_pattern)
+# add_subdirectory(cxx11)
+# add_subdirectory(stl)
+# add_subdirectory(algorithm)
+# add_subdirectory(design_pattern)
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 message(" BINARY DIR:" ${PROJECT_SOURCE_DIR}/bin)
 
 link_directories(${PROJECT_SOURCE_DIR}/bin)
 
-# add_executable(main main.cpp)
-
+add_executable(main main.cpp)
+target_link_libraries(main myLib_shared)
 
 # add_executable(test-linkedlist test-linkedlist.cpp)
-# add_executable(test test-linkedlist.cpp)
+# add_executable(test-linkedlist test-linkedlist.cpp)
 
 # add_executable(reference reference.cpp)                   # reference in CXX
 

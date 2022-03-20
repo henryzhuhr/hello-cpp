@@ -43,5 +43,6 @@ add_compile_options(-std=c++17 -Wall) # solve error: unused variable 'ints' [-We
 
 project(dataStructure)
 
+add_subdirectory(src)
 add_subdirectory(app)
 # add_subdirectory(test)
