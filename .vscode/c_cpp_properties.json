@@ -1,4 +1,7 @@
 {
+    "env": {
+        "OpenCV_HOME": "~/program/opencv-4.5.5"
+    },
     "configurations": [
         {
             "name": "Mac",
@@ -6,33 +9,18 @@
                 "${workspaceFolder}/**",
                 "~/program/gflags/include",
                 "~/program/glog/include",
-                "~/program/opencv/include/opencv4"
+                "${env:OpenCV_HOME}/include/opencv4"
             ],
             "defines": [],
             "macFrameworkPath": [
-                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks"
             ],
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "macos-clang-arm64",
             "configurationProvider": "ms-vscode.cmake-tools"
-        },
-        // {
-        //     "name": "Win32",
-        //     "includePath": [
-        //         "${workspaceFolder}/**"
-        //     ],
-        //     "defines": [
-        //         "_DEBUG",
-        //         "UNICODE",
-        //         "_UNICODE"
-        //     ],
-        //     "compilerPath": "C:/mingw64/bin/gcc.exe",
-        //     "cStandard": "gnu17",
-        //     "cppStandard": "gnu++14",
-        //     "intelliSenseMode": "windows-gcc-x64"
-        // }
+        }
     ],
     "version": 4
 }

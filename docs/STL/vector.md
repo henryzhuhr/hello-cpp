@@ -37,7 +37,7 @@ std::vector<int> _vec{1,2,3};
 std::vector<int> vec(_vec);
 ```
 
-1. `vector(begin,end)` 
+6. `vector(begin,end)` 
 
 用数组初始化
 ```cpp
@@ -45,7 +45,7 @@ int array[]{1,2,3,4};
 std::vector<int> vec(array,array+4);    // vec = [1,2,3,4]
 ```
 
-1. `vector(begin,end)` 
+7. `vector(begin,end)` 
 
 迭代器初始化，将 `[begin,end)` 范围内的元素进行初始化
 - 通过 vector 自带的迭代器来进行初始化
