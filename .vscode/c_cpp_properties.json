@@ -1,19 +1,19 @@
 {
     "env": {
-        "OpenCV_HOME": "~/program/opencv-4.5.5"
+        "INSTALL_DIR": "~/program"
     },
     "configurations": [
         {
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "~/program/gflags/include",
-                "~/program/glog/include",
-                "${env:OpenCV_HOME}/include/opencv4"
+                "${env:INSTALL_DIR}/gflags/include",
+                "${env:INSTALL_DIR}/glog/include",
+                "${env:INSTALL_DIR}/opencv-4.5.5/include/opencv4"
             ],
             "defines": [],
             "macFrameworkPath": [
-                "/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks"
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
             ],
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",

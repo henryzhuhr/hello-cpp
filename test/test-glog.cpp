@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <glog/logging.h>
 
 int main(int argc, char* argv[])
@@ -10,7 +11,8 @@ int main(int argc, char* argv[])
 
     FLAGS_logbufsecs = 0;
     google::InitGoogleLogging(log_file);
-    FLAGS_log_dir='./logs';
+    FLAGS_log_dir=std::string("./logs");
+
 
     // ...
     int num_cookies = 10;

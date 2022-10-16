@@ -1,5 +1,5 @@
-#ifndef UTILS_COLOR_H_
-#define UTILS_COLOR_H_
+#ifndef UTILS__COLOR_H_
+#define UTILS__COLOR_H_
 
 #define NONE_COLOR   "\033[0m"
 #define BLACK        "\033[30m"
@@ -28,4 +28,4 @@
 #define BOLD_WHITE   "\033[1m\033[37m"
 #define BROWN        "\033[0;33m"
 
-#endif  // DATASTRUTURE_UTILS_COLOR_H_
+#endif // DATASTRUTURE_UTILS_COLOR_H_

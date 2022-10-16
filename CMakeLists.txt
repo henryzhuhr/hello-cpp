@@ -44,7 +44,8 @@ message(STATUS "[INFO] CXX compiler: ${CMAKE_CXX_COMPILER}")
 # CXX-standard
 set(CMAKE_CXX_STANDARD 11)
 # CXX-flags
-set(CMAKE_CXX_FLAGS  "$ENV{CXXFLAGS} -g -fexec-charset=GBK")
+# set(CMAKE_CXX_FLAGS  "$ENV{CXXFLAGS} -g -fexec-charset=GBK")
+set(CMAKE_CXX_FLAGS  "$ENV{CXXFLAGS} -g")
 
 # -------- Debug config --------
 # -- dubug 模式------------------这个非常重要，否则无法进入断点
@@ -68,4 +69,4 @@ project(dataStructure)
 
 add_subdirectory(src)
 add_subdirectory(app)
-# add_subdirectory(test)
+add_subdirectory(test)
