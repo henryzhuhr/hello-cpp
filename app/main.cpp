@@ -20,6 +20,16 @@ int main(int argc, char* argv[])
     //     // 但是你依旧不可以通过b修改 a的值，在c++里面这叫做未定义行为
     //     // 有个const_cast 就是专门用来改变这种底层const 的
     // }
-    IntList list=IntList();
+    IntList list = IntList();
+    printf("%p\n", &list);
+    printf("%s\n", typeid(list).name()); // 7IntList
+
+    printf("%s\n", typeid(&list).name()); // P7IntList
+    printf("%p\n", &list);                // 0x16f4c292f
+
+    printf("%s\n", typeid((int*)&list).name()); // Pi
+    printf("%p\n", (int*)&list);                // 0x16f4c292f
+
+    printf("%p\n", *(int*)&list); // 0x16f4c292f
     return 0;
 }
