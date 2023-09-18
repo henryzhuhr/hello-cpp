@@ -6,7 +6,7 @@
 class Buffer
 {
   private:
-    unsigned char* buf;
+    unsigned char* buffer_;
     int            capacity;
     int            length;
 
@@ -15,9 +15,9 @@ class Buffer
     {
         this->capacity = capacity;
         this->length   = 0;
-        this->buf      = new unsigned char[capacity]{0};
+        this->buffer_      = new unsigned char[capacity]{0};
     }
-    ~Buffer() { delete[] buf; }
+    ~Buffer() { delete[] buffer_; }
 
   public:
     int GetLength() { return length; }
@@ -31,7 +31,7 @@ class Buffer
     {
         if (length == capacity)
             return false;
-        buf[length++] = value;
+        buffer_[length++] = value;
         return true;
     }
 };
@@ -40,7 +40,7 @@ std::ostream& operator<<(std::ostream& os, Buffer& buffer)
     os << "Buffer(" << buffer.length << "/" << buffer.capacity << ")[";
     for (int i = 0; i < buffer.capacity; i++)
     {
-        os << (int)buffer.buf[i] << ",";
+        os << (int)buffer.buffer_[i] << ",";
     }
     os << "]";
     return os;

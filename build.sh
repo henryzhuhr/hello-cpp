@@ -1,45 +1,56 @@
-clear
 source ~/.zshrc
-CURRENTDIR=$(pwd)
+
 
 rm -rf bin
 mkdir build
 cd build 
-rm ./CMakeCache.txt
+# rm ./CMakeCache.txt
+rm -rf build
 
 
-cmake ..
-make -j8
-cd ..
+cmake .. -G "Ninja" -DCMAKE_BUILD_TYPE=Release
+# make -j8
+ninja
+
+CURRENTDIR=$(pwd)
 
 # --- RUN:: MAIN ---
-cd $CURRENTDIR/bin
-./main
+cd $CURRENTDIR/app
+./move_constructor-optim
+
 
 # ./test-linkedlist
-cd $CURRENTDIR/bin/cxx11
-./cxx11
+# cd $CURRENTDIR/app/cxx11
+# ./cxx11
 
 # --- RUN:: TEST ---
-# cd $CURRENTDIR/bin/test
+# cd $CURRENTDIR/app/test
 # ./test-opencv $CURRENTDIR/images/lena.jpg
 # ./test-gflags
 # ./test-glog ./test_glog.log
 
 # --- RUN:: CXX11 ---
-# cd $CURRENTDIR/bin/cxx11
+# cd $CURRENTDIR/app/cxx11
 # ./std_function
 # ./std_bind
 # ./variadic_templates
 # ./variadic_templates-recursive_print
 # ./smart_pointer
+# ./universal_reference
 
 # --- RUN:: STL ---
-# cd $CURRENTDIR/bin/stl
+# cd $CURRENTDIR/app/stl
 # ./stl_vector
 
 # --- RUN:: algorithm ---
-# cd $CURRENTDIR/bin/algorithm
+# cd $CURRENTDIR/app/algorithm
 # ./dynamic_programming
 
+# --- RUN:: sort ---
+# cd $CURRENTDIR/app/bin/sort
+# ./sort
+
 # rm -rf $CURRENTDIR/bin
+
+
+cd $CURRENTDIR

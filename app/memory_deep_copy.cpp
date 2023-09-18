@@ -6,65 +6,74 @@
 class Buffer
 {
   private:
-    unsigned char* buf;
+    unsigned char* buffer_;
     int            capacity;
     int            length;
 
   public:
-    explicit Buffer(int capacity) : buf(new unsigned char[capacity]{0}), capacity(capacity), length(0) {}
+    /**
+     * 单参数构造函数
+     */
+    explicit Buffer(int capacity) : buffer_(new unsigned char[capacity]{0}), capacity(capacity), length(0) {}
+    /**
+     * 拷贝构造函数
+     */
     Buffer(Buffer& buffer)
     {
         this->capacity = buffer.capacity;
         this->length   = buffer.length;
-        this->buf      = new unsigned char[buffer.capacity];
-        std::copy(buffer.buf, buffer.buf + buffer.capacity, this->buf);
+        this->buffer_  = new unsigned char[buffer.capacity];
+        std::copy(buffer.buffer_, buffer.buffer_ + buffer.capacity, this->buffer_);
     }
+    /**
+     * 拷贝赋值函数
+     */
     Buffer& operator=(Buffer const& buffer)
     {
         if (this != &buffer)
         {
             this->capacity = buffer.capacity;
             this->length   = buffer.length;
-            delete[] this->buf;
-            this->buf = new unsigned char[buffer.capacity];
-            std::copy(buffer.buf, buffer.buf + buffer.capacity, this->buf);
+            delete[] this->buffer_;
+            this->buffer_ = new unsigned char[buffer.capacity];
+            std::copy(buffer.buffer_, buffer.buffer_ + buffer.capacity, this->buffer_);
         }
         return *this;
     }
-    ~Buffer() { delete[] buf; }
+    ~Buffer() { delete[] buffer_; }
 
   public:
     int GetLength() { return length; }
     int GetCapacity() { return capacity; }
 
   public:
-    friend std::ostream& operator<<(std::ostream& os, Buffer& buffer);
+    friend std::ostream& operator<<(std::ostream& os, Buffer& buffer)
+    {
+        os << "Buffer(" << buffer.length << "/" << buffer.capacity << ")[";
+        for (int i = 0; i < buffer.capacity; i++)
+        {
+            os << (int)buffer.buffer_[i] << ",";
+        }
+        os << "]";
+        return os;
+    }
+
 
   public:
     bool write(unsigned char value)
     {
         if (length == capacity)
             return false;
-        buf[length++] = value;
+        buffer_[length++] = value;
         return true;
     }
 };
-std::ostream& operator<<(std::ostream& os, Buffer& buffer)
-{
-    os << "Buffer(" << buffer.length << "/" << buffer.capacity << ")[";
-    for (int i = 0; i < buffer.capacity; i++)
-    {
-        os << (int)buffer.buf[i] << ",";
-    }
-    os << "]";
-    return os;
-}
 
 #endif
 
 int main(int argc, char const* argv[])
 {
-    auto buffer = Buffer(10);
+    Buffer buffer(10);
     buffer.write(97);
     auto buffer2 = buffer;
 

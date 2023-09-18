@@ -20,7 +20,14 @@ class Buffer
     }
 
     // Copy Construct & Assign
-    Buffer(Buffer& buffer):buf(nullptr), capacity(0), length(0)  { *this = buffer; }
+    /**
+     * 拷贝构造函数
+     * 这好像不对
+     */
+    Buffer(Buffer& buffer) : buf(nullptr), capacity(0), length(0) { *this = buffer; }
+    /**
+     * 拷贝赋值函数
+     */
     Buffer& operator=(Buffer const& buffer)
     {
         std::cout << "Buffer assignment operator called: " << &buffer << std::endl;
@@ -35,17 +42,27 @@ class Buffer
         return *this;
     }
     // Move Construct & Assign
+    /**
+     * 移动构造函数
+     */
     Buffer(Buffer&& buffer) noexcept
     { // left value reference
+
         std::cout << "Buffer move constructor called: " << buffer << std::endl;
-        this->capacity  = buffer.capacity;
-        this->length    = buffer.length;
-        this->buf       = buffer.buf;
+        this->capacity = buffer.capacity;
+        this->length   = buffer.length;
+        this->buf      = buffer.buf;
+        /**
+         * 偷完资源后，原对象的资源就没有了，所以要把原对象的资源清空
+         * 尤其是指针
+         */
         buffer.capacity = 0;
         buffer.length   = 0;
         buffer.buf      = nullptr;
     }
-
+    /**
+     * 移动赋值函数
+     */
     Buffer& operator=(Buffer&& buffer) noexcept
     {
         std::cout << "Buffer move assignment operator called: " << buffer << std::endl;
@@ -54,7 +71,10 @@ class Buffer
             this->capacity = buffer.capacity;
             this->length   = buffer.length;
             this->buf      = buffer.buf;
-
+            /**
+             * 偷完资源后，原对象的资源就没有了，所以要把原对象的资源清空
+             * 尤其是指针
+             */
             buffer.capacity = 0;
             buffer.length   = 0;
             buffer.buf      = nullptr;
@@ -121,19 +141,28 @@ std::ostream& operator<<(std::ostream& os, Buffer& buffer)
 
 int main(int argc, char const* argv[])
 {
-    std::cout << "========== auto buffer = Buffer(10); ==========" << std::endl;
-    auto buffer = Buffer(10);
+    {
+        std::cout << "==========" << std::endl;
+        auto buffers = std::vector<Buffer>();
+        std::cout << " push_back " << std::endl;
+        buffers.push_back(Buffer(12));
+        std::cout << " push_back " << std::endl;
+        buffers.push_back(Buffer(20));
+        std::cout << " push_back " << std::endl;
+        buffers.push_back(Buffer(30));
+        std::cout << " finish domain " << std::endl;
+    }
 
-    std::cout << "========== buffer = Buffer(16); ==========" << std::endl;
-    buffer = Buffer(16); // left value (buffer) = right value (Buffer(16));
-    std::cout << buffer << std::endl;
-
-    std::cout << "==========" << std::endl;
-    auto buffers = std::vector<Buffer>();
-    buffers.push_back(Buffer(12));
-    buffers.push_back(Buffer(20));
-    buffers.push_back(Buffer(30));
-
-    std::cout << "========== Destory ==========" << std::endl;
+    return 0;
+    {
+        std::cout << "========== auto buffer = Buffer(5); ==========" << std::endl;
+        Buffer buffer(5);
+        std::cout << " finish domain " << std::endl;
+    }
+    {
+        std::cout << "========== auto buffer = Buffer(10); ==========" << std::endl;
+        auto buffer = Buffer(10); // left value (buffer) = right value (Buffer(16));
+        std::cout << " finish domain " << std::endl;
+    }
     return 0;
 }

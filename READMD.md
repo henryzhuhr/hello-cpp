@@ -1,8 +1,5 @@
 
 
-
-
-run docs
 ```shell
-yarn dev
+yarn docs:dev
 ```
