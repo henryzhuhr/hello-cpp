@@ -3,11 +3,15 @@
 .DS_Store
 */.DS_Store
 
+# Vitepress
+docs/.vitepress/dist
+docs/.vitepress/cache
+
 # vuepress
 node_modules
-.temp
-.cache
-dist
+docs/.vuepress/.temp
+docs/.vuepress/.cache
+docs/.vuepress/dist
 
 # c++
 bin

@@ -1,5 +1,0 @@
-
-
-```shell
-yarn docs:dev
-```

@@ -1,5 +1,5 @@
 # C++11
-- [x] [explicit 关键字](#explicit)
+
 ## C++11 新数据类型
 ## decltype
 ## 关键字

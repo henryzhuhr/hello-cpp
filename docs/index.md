@@ -9,10 +9,10 @@
 - [可变参数模板 (variadic templates)](./cxx11/variadic_templates.md)
 
 ## STL
-- 容器 
-  - [vector](./STL/vector.md): [`std::vector`](https://en.cppreference.com/w/cpp/container/vector)
+容器 
+  - [Vector](./cxx_stl/vector.md): [`std::vector`](https://en.cppreference.com/w/cpp/container/vector)
 - 容器适配器
-  - [stack](./STL/stack.md)
+  - [Stack](./cxx_stl/stack.md)
 
 
 <!-- ## 算法 -->
