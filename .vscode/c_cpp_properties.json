@@ -1,0 +1,26 @@
+{
+    "env": {
+        "INSTALL_DIR": "/Users/henryzhu/program"
+    },
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${env:INSTALL_DIR}/gflags/include",
+                "${env:INSTALL_DIR}/glog/include",
+                "${env:INSTALL_DIR}/opencv-4.5.5/include/opencv4",
+                "${workspaceFolder}/include"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-arm64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}
