@@ -28,7 +28,7 @@ ARG APT_INSTALL_LIST="$APT_INSTALL_LIST ca-certificates locales sudo"
 ARG APT_INSTALL_DEV_LIST=""
 ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST vim nano tree pciutils"
 ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST git openssh-client"
-ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST build-essential cmake"
+ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST build-essential cmake ninja-build"
 ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST python3-pip python3-venv"
 
 

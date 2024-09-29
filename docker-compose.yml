@@ -5,7 +5,7 @@ services:
       dockerfile: dockerfiles/Dockerfile
     image: hello-cpp-ubuntu-dev:latest  # 构建后镜像的名称和标签
     environment:
-      SERVICE: hello-cpp-development-env
+      USER: root
     volumes:
       - .:/root/hello-cpp
     working_dir: /root/hello-cpp
