@@ -41,11 +41,12 @@ message(STATUS "[INFO] CXX compiler: ${CMAKE_CXX_COMPILER}")
 
 # CXX-standard
 set(CMAKE_CXX_STANDARD 11)
-set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # CXX-flags
 # set(CMAKE_CXX_FLAGS  "$ENV{CXXFLAGS} -g -fexec-charset=GBK")
 set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -g -fno-elide-constructors")
+
 # 优化禁止
 # -fno-elide-constructors # 禁止编译器优化返回值 RVO
 
@@ -61,7 +62,6 @@ message("  ${BoldCyan}Architecture: ${BoldGreen}${CMAKE_SYSTEM_PROCESSOR}${Colou
 message("  ${BoldCyan}     C flags: ${BoldGreen}${CMAKE_C_FLAGS}${ColourReset}")
 message("  ${BoldCyan}   C++ flags: ${BoldGreen}${CMAKE_CXX_FLAGS}${ColourReset}")
 
+project(hello-cpp) # 必须在设置编译器后面
 
-project(project) # 必须在设置编译器后面
-
-add_subdirectory(app)
+add_subdirectory(demo)

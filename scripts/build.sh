@@ -38,6 +38,7 @@ fi
 
 
 # --- RUN:: MAIN ---
+echo "====== Run ======"
 CURRENTDIR=$(pwd)
 
 if [ -d $BINARY_DIR ]; then

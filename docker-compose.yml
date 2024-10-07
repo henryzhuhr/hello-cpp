@@ -7,7 +7,8 @@ services:
     environment:
       USER: root
     volumes:
-      - .:/root/hello-cpp
+      - .:/root/hello-cpp # 项目代码
+      - ~/.ssh:/root/.ssh # 挂载以确保容器中可以提交代码
     working_dir: /root/hello-cpp
     # sleep infinity 用于保持容器运行，否则 vscode 无法进入容器，建议写在 .devcontainer/docker-compose.yml 文件中
     command: sleep infinity
