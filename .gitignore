@@ -108,7 +108,10 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+
+
 # ========================
 #   Others
 # ========================
 **.drawio.bkp
+.cache/

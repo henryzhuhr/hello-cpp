@@ -1,10 +1,19 @@
 ---
 outline: deep
 ---
-# CMake基础：编译可执行文件
 
+# CMake 基础：编译可执行文件
+
+
+## 简介
+
+在 Windows 下可以使用 Visual Studio 来构建一个 C++ 项目，但是在 Linux 下，通常使用 CMake 生成 Makefile 来构建项目。
+
+要学习 CMake，首先需要了解 CMake 的基本语法，然后通过一个简单的示例来学习如何使用 CMake 来构建一个 C++ 项目，生成一个 Linux 下的可执行文件。
 
 ## 项目结构
+
+一个 CMake 项目结构可以如下
 
 ```bash
 .
@@ -54,7 +63,7 @@ int main(int argc, char* argv[]) {
 
 根目录下的 `CMakeLists.txt` 为整个项目做一些基本配置，包括项目所需CMake最低版本、项目名称、编译器等，文件内容如下
 
-```cmakelist
+```cmake
 # CMakeLists.txt
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 project(hello-cpp) 
@@ -325,4 +334,74 @@ cd ../bin
 
 ## clangd 的使用
 
-[clangd](https://clangd.llvm.org/installation)
+[clangd](https://clangd.llvm.org/installation) 是一个基于 Clang 的 C++ 语言服务器，可以用于代码补全、语法检查等。 clangd 支持的特性可以参考文档 [Features](https://clangd.llvm.org/features)
+
+在上述 demo 中，我们已经生成了 `compile_commands.json` 文件，可以使用 clangd 来进行代码补全、语法检查等。
+
+首先安装 clangd （容器中已经安装了 clangd）
+```bash
+apt install clangd
+```
+
+VSCode 对 clangd 的支持很好，可以安装 [clangd 插件](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd)以启用 clangd
+
+> [!TIP]
+> - clangd 插件和 [C/C++ 插件](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)是冲突的，因此在安装 clangd 插件时，需要禁用 C/C++ 插件。
+
+下列是一些常用的配置选项，添加到 `.vscode/settings.json` 文件的 `clangd.arguments` 列表中
+```json
+{
+    "clangd.arguments": [
+        "--clang-tidy", // 开启clang-tidy
+        "--clang-tidy-checks=performance-*,bugprone-*",
+        "--j=4", // 后台线程数，可根据机器配置自行调整
+        "--query-driver=/usr/bin/clang++",
+        "--all-scopes-completion", // 全代码库补全
+        "--completion-style=detailed", // 详细补全
+        "--header-insertion=iwyu",
+        "--pch-storage=disk", // 如果内存够大可以关闭这个选项
+        "--log=error",
+        "--background-index"
+    ]
+}
+```
+
+上述的配置可以根据自己的需求来配置
+- `"--compile-commands-dir=build"` 选项指定 `compile_commands.json` 文件的目录。如果在根目录 `$SRC` 或 `$SRC/build` 下，clangd 会自动查找，因此可以省略
+
+
+如果 clangd 没有默认安装在系统位置，可以通过 `clangd.path` 来指定 clangd 的路径
+```json
+{
+    "clangd.path": "/path/to/clangd"
+}
+```
+
+
+此外，C/C++ 插件也可以支持 C/C++ 代码补全、语法检查等，需要配置 `.vscode/c_cpp_properties.json` 文件，但是 clangd 更加强大，因此推荐使用 clangd 插件。
+
+::: details 点击查看 `.vscode/c_cpp_properties.json` 配置参考
+```json
+{
+    "env": {
+        "INSTALL_DIR": "/Users/henryzhu/program"
+    },
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${env:INSTALL_DIR}/opencv-4.5.5/include/opencv4",
+                "${workspaceFolder}/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-clang-arm64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}
+```
+:::
