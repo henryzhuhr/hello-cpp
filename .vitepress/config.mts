@@ -5,11 +5,19 @@ import { DefaultTheme, defineConfig } from 'vitepress'
  */
 const sidebar: DefaultTheme.Sidebar = [
   {
-    collapsed: false,
+    // collapsed: false,
     text: '环境准备',
     base: '/starter',
     items: [
       { text: '安装启动', link: '/install-and-stater' },
+    ]
+  },
+  {
+    collapsed: false,
+    text: 'CMake 基础',
+    base: '/cmake',
+    items: [
+      { text: '编译可执行文件', link: '/compile-executable-file' },
     ]
   },
 ]

@@ -44,13 +44,15 @@ Temporary Items
 .apdisk
 
 
-# ========================
-#   C.gitignore
-# ========================
+# =========================
+#   C/C++.gitignore
+# =========================
 # Prerequisites
 *.d
 
-# Object files
+# Compiled Object files
+*.slo
+*.lo
 *.o
 *.ko
 *.obj
@@ -65,19 +67,25 @@ Temporary Items
 *.gch
 *.pch
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
+# Compiled Dynamic libraries (inc. Windows DLLs)
 *.so
 *.so.*
 *.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
 
 # Executables
+bin/
+build/
 *.exe
 *.out
 *.app
@@ -101,43 +109,9 @@ Mkfile.old
 dkms.conf
 
 
-# ========================
-#   C++.gitignore
-# ========================
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
 
 # ========================
 #   Others
 # ========================
-build/
+**.drawio.bkp
+.cache/
