@@ -13,9 +13,11 @@ FROM ubuntu:latest
 #                   - vim nano          编辑器 (ubuntu-server 包含 vi)
 #                   - tree              目录树
 #                   - pciutils          PCI 设备信息
+#                   - curl wget         下载工具
 #                   - git               版本控制工具
 #                   - openssh-client    SSH 客户端 (ubuntu-server 不包含，所以如果使用 git clone 需要安装)
 #                   - python3-dev python3-pip python3.12-venv   Python 环境
+#                   - dotnet-sdk-8.0    .NET SDK VSCode 插件需要
 # ============================================================
 # 是否开发模式，如果是开发模式，会安装「开发环境」中的软件
 ARG DEV_MODE=1
@@ -26,10 +28,11 @@ ARG APT_INSTALL_LIST="$APT_INSTALL_LIST ca-certificates locales sudo"
 
 # 「开发环境」中需要的软件列表
 ARG APT_INSTALL_DEV_LIST=""
-ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST vim nano tree pciutils"
+ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST vim nano tree pciutils curl wget"
 ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST git openssh-client"
 ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST build-essential cmake ninja-build clangd"
 ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST python3-pip python3-venv"
+ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST dotnet-sdk-8.0"
 
 
 # 自定义镜像源 (tuna 在自定义网络下不可访问)
