@@ -18,6 +18,7 @@ const sidebar: DefaultTheme.Sidebar = [
     base: '/cmake',
     items: [
       { text: '编译可执行文件', link: '/compile-executable-file' },
+      { text: '编译动态库', link: '/compile-dynamic-library' },
     ]
   },
 ]
