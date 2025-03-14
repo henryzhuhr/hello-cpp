@@ -1,5 +1,5 @@
 services:
-  hello-cpp-ubuntu-dev:
+  hello-cpp:
     build:
       context: .
       dockerfile: dockerfiles/Dockerfile
@@ -7,8 +7,9 @@ services:
     environment:
       USER: root
     volumes:
+      - "~/.ssh:/root/.ssh:ro" # 挂载宿主机的ssh配置文件，方便推拉代码（只读）
+      - "/etc/localtime:/etc/localtime:ro" # 挂载宿主机时间到容器
       - .:/root/hello-cpp # 项目代码
-      - ~/.ssh:/root/.ssh # 挂载以确保容器中可以提交代码
     working_dir: /root/hello-cpp
-    # sleep infinity 用于保持容器运行，否则 vscode 无法进入容器，建议写在 .devcontainer/docker-compose.yml 文件中
-    command: sleep infinity
+    # sleep infinity 用于保持容器运行
+    command: ["sleep", 'infinity']
