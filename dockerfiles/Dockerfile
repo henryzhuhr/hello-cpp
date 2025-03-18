@@ -30,7 +30,7 @@ ARG BASE_INSTALL_LIST="$BASE_INSTALL_LIST zsh"
 ARG EXTENT_INSTALL_LIST=""
 ARG EXTENT_INSTALL_LIST="$EXTENT_INSTALL_LIST vim nano tree pciutils iputils-ping"
 ARG EXTENT_INSTALL_LIST="$EXTENT_INSTALL_LIST git openssh-client"
-ARG APT_INSTALL_DEV_LIST="$APT_INSTALL_DEV_LIST build-essential cmake ninja-build clangd"
+ARG EXTENT_INSTALL_LIST="$EXTENT_INSTALL_LIST build-essential cmake ninja-build clangd"
 # ARG EXTENT_INSTALL_LIST="$EXTENT_INSTALL_LIST python3-pip python3-venv"
 
 
